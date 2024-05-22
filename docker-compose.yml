@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  #MongoDB
+  mongo_db:
+    container_name: database_container
+    image: mongo:latest
+    # restart: always 
+    volumes:
+      - mongo_db:/data/db
+
+  app:
+    build: .
+    ports:
+      - 4000:3001
+    environment:
+      MONGO_URL : "mongodb://mongo_db:27017/node-gql"
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}

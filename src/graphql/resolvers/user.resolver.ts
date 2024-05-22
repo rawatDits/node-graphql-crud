@@ -9,7 +9,6 @@ import {userAuthValidation} from "../../middleware/userAuthValidation"
 
 export default {
   Query: {
-
     /************************************************************
      Get user profile
     /***********************************************************/
